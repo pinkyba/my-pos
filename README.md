@@ -1,1 +1,1 @@
-# my-pos
+# POS PC

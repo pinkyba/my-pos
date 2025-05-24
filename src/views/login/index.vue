@@ -158,7 +158,6 @@ export default {
         if (valid) {
           this.loading = true
           login(this.loginForm).then(response => {
-            console.log(response)
             if(response.code === 200){
               this.$store.dispatch('user/login', response)
                 .then(() => {

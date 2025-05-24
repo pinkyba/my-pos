@@ -13,7 +13,11 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
   config => {
-    // do something before request is sent
+    // do these before request is sent
+    const token = getToken()
+    if (token) {
+      config.headers['Authorization'] = `Bearer ${token}`
+    }
     config.headers['Accept-Language'] = store.getters.userLangs || 'en'
     if (store.getters.token) {
       // let each request carry token
